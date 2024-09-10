@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>. SAD .</title>
+    <meta property="og:title" content="Screenshot">
+    <meta property="og:site_name" content="Lightshot">
+    <meta property="og:image" content="images/lightshot.png">
+    <meta property="og:description" content="Captured with Lightshot">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="photo">
+    <meta name="twitter:title" content="Screenshot">
+    <meta name="twitter:site" content="@light_shot">
+    <meta name="twitter:description" content="Captured with Lightshot">
+    <meta name="twitter:image:src" content="lightshot.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Inter", sans-serif;
+            overflow: auto;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(245, 246, 250, 0.9);
+            z-index: 2;
+            overflow: auto; 
+        }
+
+        .scare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            z-index: 1;
+            display: none; 
+        }
+
+        .overlay-body {
+            text-align: center;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        p.overlay-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: black;
+            line-height: 1.2;
+            margin: 0 0 16px 0;
+        }
+
+        p.overlay-description {
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 1.5;
+            margin: 0 0 16px 0;
+        }
+
+        .overlay-button {
+            display: inline-flex;
+            align-items: center;
+            height: 40px;
+            padding: 0 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            margin: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #accept-button {
+            background-color: rgb(132, 94, 194);
+            color: white;
+        }
+
+        #decline-button {
+            color: rgb(132, 94, 194);
+            border: 2px solid rgb(132, 94, 194);
+        }
+
+        .overlay-buttons-wrapper {
+            margin: 24px 0;
+        }
+
+        a.overlay-link {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgb(132, 94, 194);
+            position: relative;
+            margin-top: 16px;
+        }
+
+        a.overlay-link::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            bottom: -4px;
+            left: -4px;
+            background-color: rgba(132, 94, 194, 0.1);
+            z-index: -1;
+        }
+
+        video#video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        video#video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+
+        .report-section {
+            margin: 24px 0;
+            font-size: 1rem;
+            color: black;
+        }
+
+        .report-section a {
+            color: rgb(132, 94, 194);
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            p.overlay-title {
+                font-size: 1.5rem;
+            }
+
+            p.overlay-description {
+                font-size: 0.875rem;
+            }
+
+            .overlay-button {
+                font-size: 0.875rem;
+            }
+        }
+
+      
+    </style>
+
+
+
+</head>
+<body>
+    
+    <div id="overlay" class="overlay">
+        <div class="overlay-body">
+            <br> <br> <br> 
+            <p class="overlay-title">THIS CONTENT MAY BE INAPPROPRIATE</p>
+           
+            <p class="overlay-description">You should note that this content is not for the elderly, children, under 18 years old, people in bad mood, weak heart, have underlying diseases, or unstable mentality!</p>
+         
+            <div class="overlay-buttons-wrapper">
+                <div id="accept-button" class="overlay-button"> Accept </div>
+                <div id="decline-button" class="overlay-button"> Decline </div>
+            </div>
+            <hr>
+            <br>
+            <script type="text/javascript">
+              atOptions = {
+                'key' : '67798fc9d10330b394aa2e1966e589aa',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script type="text/javascript" src="//www.topcreativeformat.com/67798fc9d10330b394aa2e1966e589aa/invoke.js"></script>
+            <div class="report-section">
+                <p>this site ?</p>
+                <a href="https://vietnamvd.github.io" target="_blank" class="overlay-link">  HOME </a>
+    
+            </div>
+            <hr>
+          
+            <p style="color:red">Share this website with your friends  <a href="https://khongcancamon.github.io/" style="color:red;">https://khongcancamon.github.io/</a></p>
+        </div>
+    </div>
+    <div class="scare">
+        <video id="video" class="video" src="video.mp4" loop controls></video>
+    </div>
+    <script type="text/javascript">
+        const video = document.getElementById("video");
+        const overlay = document.getElementById("overlay");
+        const declineButton = document.getElementById("decline-button");
+        const acceptButton = document.getElementById("accept-button");
+
+        let hasClicked = false;
+
+        window.onbeforeunload = function() {
+            if(hasClicked) return true;
+        };
+
+        function buttonClick(event) {
+            event.preventDefault();
+            if(!hasClicked) hasClicked = true;
+            overlay.style.display = 'none'; 
+            document.querySelector('.scare').style.display = 'block'; 
+            video.play().then(() => {
+              
+                console.log('Video playback started');
+            }).catch((error) => {
+               
+                console.error('Error attempting to play video:', error);
+            });
+            videoClick();
+        }
+
+        function videoClick(event) {
+            if(event) event.preventDefault();
+            const { documentElement } = document;
+            if(documentElement.requestFullscreen) documentElement.requestFullscreen();
+            else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
+            else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
+            else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+        }
+
+        acceptButton.addEventListener("click", buttonClick);
+        declineButton.addEventListener("click", buttonClick);
+        video.addEventListener("click", videoClick);
+    </script>
+
+ 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GN35H5C0X9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GN35H5C0X9');
+    </script>
+</body>
+</html>
