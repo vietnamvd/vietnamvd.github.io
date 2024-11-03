@@ -1,71 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .btn-custom {
-      background-color: #007bff;
-      color: #fff;
-      border-radius: 0.25rem;
-      padding: 0.5rem 1rem;
+
+<script type="text/javascript">
+    // Hàm thêm trạng thái mới vào history và ngăn quay lại
+    function preventBack() {
+        window.history.pushState(null, null, window.location.href);
     }
-    .btn-custom:hover {
-      background-color: #0056b3;
-      color: #fff;
-    }
-    .responsive-heading {
-      font-size: 2.5rem;
-    }
-    @media (max-width: 768px) {
-      .responsive-heading {
-        font-size: 2rem;
-      }
-    }
-    @media (max-width: 576px) {
-      .responsive-heading {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+
+    window.onload = function() {
+        // Khi trang được tải, thêm trạng thái vào history
+        preventBack();
+
+        // Chặn sự kiện "popstate" khi người dùng nhấn nút quay lại hoặc sử dụng cử chỉ
+        window.onpopstate = function(event) {
+            preventBack(); // Thêm lại trạng thái
+            alert('You cannot go back to the previous page :)) ');
+
+            // Điều hướng lại trang hiện tại
+            window.location.href = window.location.href;
+        };
+    };
+
+    // Lắng nghe sự kiện "popstate" cho các trường hợp phím tắt hoặc cử chỉ quay lại
+    window.addEventListener('popstate', function(event) {
+        preventBack(); // Thêm lại trạng thái
+        alert('You cannot go back to the previous page :)) ');
+
+        // Điều hướng lại trang hiện tại
+        window.location.href = window.location.href;
+    });
+
+    // Nếu người dùng cố gắng thoát khỏi trang bằng cách khác, luôn giữ họ ở trang hiện tại
+    window.onbeforeunload = function() {
+        preventBack(); // Đảm bảo trạng thái luôn được thêm lại khi thoát trang
+    };
+</script>
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TÔI YÊU BẠN NHIỀU LẮM .</title>
+    <meta name="description" content="ghost scare troll games, ghost scare video clips, and many interesting things about the world of ghost scares!">
+    <meta name="keywords" content="ghost scare, ghost scare game, ghost scare meme, ghost scare video, ghost scare clip, ghost scare troll, ghost scare website, ghost scare link, ghost scare game">
+    <meta name="author" content="Ghost Scare Team">
+    <meta property="og:title" content="Screenshot">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="photo">
+    <meta name="twitter:title" content="Screenshot">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Inter", sans-serif;
+            overflow: auto; /* Allow scrolling */
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(245, 246, 250, 0.9);
+            z-index: 2;
+            overflow: auto; /* Ensure scrolling within overlay if content overflows */
+        }
+
+        .scare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            z-index: 1;
+            display: none; /* Hide video by default */
+        }
+
+        .overlay-body {
+            text-align: center;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        p.overlay-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: black;
+            line-height: 1.2;
+            margin: 0 0 16px 0;
+        }
+
+        p.overlay-description {
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 1.5;
+            margin: 0 0 16px 0;
+        }
+
+        .overlay-button {
+            display: inline-flex;
+            align-items: center;
+            height: 40px;
+            padding: 0 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            margin: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #accept-button {
+            background-color: rgb(132, 94, 194);
+            color: white;
+        }
+
+        #decline-button {
+            color: rgb(132, 94, 194);
+            border: 2px solid rgb(132, 94, 194);
+        }
+
+        .overlay-buttons-wrapper {
+            margin: 24px 0;
+        }
+
+        a.overlay-link {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgb(132, 94, 194);
+            position: relative;
+            margin-top: 16px;
+        }
+
+        a.overlay-link::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            bottom: -4px;
+            left: -4px;
+            background-color: rgba(132, 94, 194, 0.1);
+            z-index: -1;
+        }
+
+        video#video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        video#video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+
+        .report-section {
+            margin: 24px 0;
+            font-size: 1rem;
+            color: black;
+        }
+
+        .report-section a {
+            color: rgb(132, 94, 194);
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            p.overlay-title {
+                font-size: 1.5rem;
+            }
+
+            p.overlay-description {
+                font-size: 0.875rem;
+            }
+
+            .overlay-button {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container my-4">
-    <h2 class="text-center responsive-heading">Welcome</h2>
-
-    <h3>Vd đáng xem nhất lúc này!</h3>
-    <a href="https://dilink.net/notes/bEIjj8B" class="btn btn-custom">Truy cập ngay</a>
-    <hr>
-    <h3>Khuyến khích xem khi đang ở 1 mình nha!</h3>
-    <a href="https://dilink.net/FWbutyMul" class="btn btn-custom">Truy cập ngay</a>
-    <hr>
+<h1>.</h1>  <div style="height:100px;width:100px; margin-top: 300px;"><script async="async" data-cfasync="false" src="//pl23895233.cpmrevenuegate.com/4316d647a152e48279debb02c6de0a8d/invoke.js"></script>
+    <div id="container-4316d647a152e48279debb02c6de0a8d"></div></div> <br> <br> <br> <br>
     
+    <div id="overlay" class="overlay">
+        <div class="overlay-body">
+            <br> <br> <br> 
+            <p class="overlay-title">RẤT VUI ĐƯỢC GẶP BẠN</p>
+            <p>TÔI MUỐN NHẮC NHỞ BẠN </p>
+            <p class="overlay-description">NỘI DUNG NÀY KHÔNG DÀNH CHO NGƯỜI GIÀ, TRẺ CON, ĐẶC BIỆT LÀ NGƯỜI YẾU TIM, ĐỘT QUỴ</p>
+              <div class="overlay-buttons-wrapper">
+                <div id="accept-button" class="overlay-button"> MỞ </div>
+                <div id="decline-button" class="overlay-button"> TÒ MÒ QUÁ THÌ MỞ  CÁI NÀY </div>
+            </div>
+            <hr>
+            <br>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '10b3b5899035cf68bc40f13b7f56f1fa',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/10b3b5899035cf68bc40f13b7f56f1fa/invoke.js"></script>
+		<br>
+            <div class="report-section">
+                <p>NẾU THẤY HAY THÌ BẠN CÓ THỂ CHIA SẺ CHO MỌI NGƯỜI CÙNG XEM </p>
+            </div>
+            <hr>
+            <p style="color:red">Share this website with your friends : https://apotua.github.io </p>
+            <p style="color:red">Share this website with your friends  <a href="https://apotua.github.io/" style="color:red;">https://apotua.github.io/</a></p>
+   
+
+		
+	</div>
+    </div>
+    <div class="scare">
+        <video id="video" class="video" src="video.mp4" loop controls></video>
+    </div>
     <script type="text/javascript">
-      atOptions = {
-        'key' : '67798fc9d10330b394aa2e1966e589aa',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
+        const video = document.getElementById("video");
+        const overlay = document.getElementById("overlay");
+        const declineButton = document.getElementById("decline-button");
+        const acceptButton = document.getElementById("accept-button");
+
+        let hasClicked = false;
+
+        window.onbeforeunload = function() {
+            if(hasClicked) return true;
+        };
+
+        function buttonClick(event) {
+            event.preventDefault();
+            if(!hasClicked) hasClicked = true;
+            overlay.style.display = 'none'; // Hide overlay
+            document.querySelector('.scare').style.display = 'block'; // Show video
+            video.play().then(() => {
+                // Video playback started successfully
+                console.log('Video playback started');
+            }).catch((error) => {
+                // Handle video playback error
+                console.error('Error attempting to play video:', error);
+            });
+            videoClick();
+        }
+
+        function videoClick(event) {
+            if(event) event.preventDefault();
+            const { documentElement } = document;
+            if(documentElement.requestFullscreen) documentElement.requestFullscreen();
+            else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
+            else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
+            else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+        }
+
+        acceptButton.addEventListener("click", buttonClick);
+        declineButton.addEventListener("click", buttonClick);
+        video.addEventListener("click", videoClick);
     </script>
-    <script type="text/javascript" src="//www.topcreativeformat.com/67798fc9d10330b394aa2e1966e589aa/invoke.js"></script>
-    
-    <h3>CÁI NÀY KINH DỊ LẮM ĐẤY!</h3>
-    <a href="https://khongcancamon.github.io/sad.html" class="btn btn-custom">Truy cập ngay</a>
-    <br><br>
-  </div>
 
-  <footer class="text-center mt-4">
-    <p>&copy; 2024 khongcancamon. All Rights Reserved.</p>
-    <p><a href="https://vietnamvd.github.io/privacy-policy.html">Privacy Policy</a> | <a href="https://vietnamvd.github.io/terms-of-service.html">Terms of Service</a></p>
-  </footer>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GN35H5C0X9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      gtag('config', 'G-GN35H5C0X9');
+    </script>
 </body>
 </html>
