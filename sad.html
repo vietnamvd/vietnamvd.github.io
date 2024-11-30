@@ -13,144 +13,169 @@
     <meta name="twitter:title" content="Screenshot">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
+
     <style>
-	     body {
-    background-image: url('akd.png'); /* Đường dẫn đến ảnh */
-    background-size: cover; /* Phóng to hoặc thu nhỏ ảnh để bao phủ toàn bộ màn hình */
-    background-position: center; /* Căn giữa ảnh */
-    background-repeat: no-repeat; /* Không lặp lại ảnh */
-}
-        body, html {
-            margin: 0;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
             padding: 0;
-            height: 100%;
-            font-family: "Inter", sans-serif;
-            overflow: auto;
         }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
+        .tab {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 10px;
         }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 100vw;
+        .tab.active {
+            display: block;
+        }
+        .tab-header {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(245, 246, 250, 0.9);
-            z-index: 2;
+            gap: 10px;
         }
-
-        .overlay-body {
-            text-align: center;
-            max-width: 90%;
-            margin: 0 auto;
-        }
-
-        p.overlay-title {
-            font-size: 2rem;
-            font-weight: 900;
-            color: black;
-            margin-bottom: 16px;
-        }
-
-        .overlay-description {
-            font-size: 1rem;
-            font-weight: 400;
-            color: rgba(0, 0, 0, 0.7);
-            line-height: 1.5;
-        }
-
-        .overlay-button {
-            display: inline-flex;
-            align-items: center;
-            height: 40px;
-            padding: 0 24px;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 4px;
-            margin: 4px;
+        .tab-header button {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
             cursor: pointer;
-            text-align: center;
         }
-
-        #accept-button {
-            background-color: rgb(132, 94, 194);
+        .tab-header button.active {
+            background-color: #007bff;
             color: white;
+            border-color: #007bff;
         }
-
-        #decline-button {
-            color: rgb(132, 94, 194);
-            border: 2px solid rgb(132, 94, 194);
-        }
-
-        @media (max-width: 600px) {
-            p.overlay-title {
-                font-size: 1.5rem;
-            }
-
-            .overlay-description {
-                font-size: 0.875rem;
-            }
-
-            .overlay-button {
-                font-size: 0.875rem;
-            }
+        .restricted {
+            display: none;
+            color: red;
+            font-weight: bold;
         }
     </style>
-    <script>
-        window.onload = function() {
-            // Sau 3 giây, ẩn overlay
-            setTimeout(() => {
-                document.getElementById("overlay").style.display = "none";
-            }, 2000);
-
-            // Sau tổng cộng 5 giây, chuyển hướng sang URL mới
-            setTimeout(() => {
-                window.location.href = "https://australiavd.github.io/ready";
-            }, 3000);
-        };
-    </script>
-            
 </head>
 <body>
-     <h1  style="color:red ;display: flex;
-     justify-content: center; 
-     align-items: center;   
-            
-     "> I AM A DEMON  </h1> 
-    <div style="height:100px;width:100px;">
-<script async="async" data-cfasync="false" src="//slushhelmetmirth.com/4316d647a152e48279debb02c6de0a8d/invoke.js"></script>
-<div id="container-4316d647a152e48279debb02c6de0a8d"></div>
+    <h1 style="color: red;">I AM A DEMON</h1>
+    <div class="tab-header">
+        <button id="tab1-btn">Tab 1</button>
+        <button id="tab2-btn">Tab 2</button>
+        <button id="tab3-btn" style="display: none;">Tab 3</button>
     </div>
-    <div id="overlay" class="overlay">
-        <div class="overlay-body">
-            <br> <br> <br> 
-             <p class="overlay-title" style="color:red" >I AM A DEMON </p>
-              <p style="color:rgb(255, 166, 0)">I AM A DEMON </p>
-            <p class="overlay-description">I AM A DEMON - I AM A DEMON  - I AM A DEMON  - I AM A DEMON  - I AM A DEMON - I AM A DEMON </p>
-              <div class="overlay-buttons-wrapper">
-                <h1 style="color:red">I AM A DEMON  </h1>
-                <h1 style="color:red">I AM A DEMON  </h1>
-            </div>
-          
-            <br>
-
-		<br>
-            <div class="report-section">
-                <p>------- I AM A DEMON ----</p>
-                <a href="https://australiavd.github.io/menu">HOME</a> <BR> <BR>
-                <a href="https://australiavd.github.io/menu"> SEE MORE</a>
-            </div>
-           
-            <p style="color:red">Share this website with your friends : https://vietnamvd.github.io </p>
-            <p style="color:red">Share this website with your friends  <a href="https://vietnamvd.github.io" style="color:red;">https://vietnamvd.github.io</a></p>
-
-        </div>
+    <div id="tab1" class="tab">
+        <p>Welcome! You are from Vietnam.</p>
+        <p id="tab1-restricted" class="restricted">Access to this tab is restricted.</p> 
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'e233d81805ddf316cfbca9453fd6bb85',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//slushhelmetmirth.com/e233d81805ddf316cfbca9453fd6bb85/invoke.js"></script>
     </div>
+    <div id="tab2" class="tab">
+        <p>Hello! You are visiting from my country. 02</p>
+        <p id="tab2-restricted" class="restricted">I AM A DEMON. 02</p>
+        <div style="height:100px;width:100px;">
+            <script async="async" data-cfasync="false" src="//slushhelmetmirth.com/4316d647a152e48279debb02c6de0a8d/invoke.js"></script>
+            <div id="container-4316d647a152e48279debb02c6de0a8d"></div>
+            </div> <h1  style="color:red ;display: flex; justify-content: center; align-items: center; margin-top:1300px"> I AM A DEMON  </h1> 
+    </div>
+    <div id="tab3" class="tab">
+        <p>Hello! You are visiting from my country. 03</p>
+        <p id="tab1-restricted" class="restricted">I AM A DEMON. 03</p> 
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'e233d81805ddf316cfbca9453fd6bb85',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//slushhelmetmirth.com/e233d81805ddf316cfbca9453fd6bb85/invoke.js"></script>
+    </div>
+
+    <script>
+        // Elements
+        const tab1 = document.getElementById('tab1');
+        const tab2 = document.getElementById('tab2');
+        const tab3 = document.getElementById('tab3');
+        const tab1Btn = document.getElementById('tab1-btn');
+        const tab2Btn = document.getElementById('tab2-btn');
+        const tab3Btn = document.getElementById('tab3-btn');
+        const tab1Restricted = document.getElementById('tab1-restricted');
+        const tab2Restricted = document.getElementById('tab2-restricted');
+
+        // Function to restrict access to a tab and set active tab
+        function restrictTab(tab) {
+            if (tab === 'tab1') {
+                tab1Restricted.style.display = 'block';
+                tab1Btn.disabled = true;
+            } else if (tab === 'tab2') {
+                tab2Restricted.style.display = 'block';
+                tab2Btn.disabled = true;
+            }
+        }
+
+        function activateTab(tab) {
+            tab1.classList.remove('active');
+            tab2.classList.remove('active');
+            tab3.classList.remove('active');
+            tab1Btn.classList.remove('active');
+            tab2Btn.classList.remove('active');
+            tab3Btn.classList.remove('active');
+
+            if (tab === 'tab1') {
+                tab1.classList.add('active');
+                tab1Btn.classList.add('active');
+                // Redirect to the specified URL after 3 seconds
+                setTimeout(() => {
+                    window.location.href = 'https://ibvoiminh.blogspot.com/';
+                }, 3000);
+            } else if (tab === 'tab2') {
+                tab2.classList.add('active');
+                tab2Btn.classList.add('active');
+                // Redirect to the YouTube URL for tab 2
+                setTimeout(() => {
+                    window.location.href = 'https://australiavd.github.io/ready';
+                }, 3000);
+            } else if (tab === 'tab3') {
+                tab3.classList.add('active');
+                tab3Btn.classList.add('active');
+                // Redirect to the same YouTube URL as tab 2 for tab 3
+                setTimeout(() => {
+                    window.location.href = 'https://australiavd.github.io/ready';
+                }, 3000);
+            }
+        }
+
+        // Fetch user's IP and determine country
+        async function fetchUserIP() {
+            try {
+                const response = await fetch('https://get.geojs.io/v1/ip/country.json'); // Reliable IP API
+                if (!response.ok) throw new Error('Failed to fetch IP data');
+
+                const data = await response.json();
+                const country = data.country;
+
+                // Restrict access and activate tabs based on country
+                if (country === 'VN') { // Vietnam
+                    restrictTab('tab2'); // Restrict Tab 2 for Vietnam
+                    activateTab('tab1'); // Activate Tab 1
+                } else {
+                    restrictTab('tab1'); // Restrict Tab 1 for other countries
+                    activateTab('tab2'); // Activate Tab 2
+                }
+            } catch (error) {
+                console.error('Error fetching IP data:', error);
+                // Default to Tab 3 if API fails
+                activateTab('tab3');
+            }
+        }
+
+        // Fetch IP on page load
+        fetchUserIP();
+    </script>
+
 </body>
 </html>
